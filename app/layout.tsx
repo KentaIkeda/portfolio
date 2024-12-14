@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import { mpr1c } from "@/app/fonts/fonts";
+import Header from "@/app/_components/Header";
 import Footer from "@/app/_components/_sections/_Footer/Footer";
 import Spotlight from "@/app/_components/Spotlight";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         className={`${mpr1c.className} antialiased bg-gradient-to-br from-teal-900 via-teal-950 via-55% to-black text-teal-50 leading-loose`}
       >
         <Spotlight>
+          <Header />
           <main className={'px-4 min-h-dvh overflow-hidden'}>
             {children}
           </main>
