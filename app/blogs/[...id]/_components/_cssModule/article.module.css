@@ -1,0 +1,69 @@
+.article {
+
+    line-height: 1.75;
+
+    h2 {
+        font-weight: bolder;
+        font-size: 1.3em;
+        margin: 2rem 0 .5rem;
+        letter-spacing: .2em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 1.5rem 0 .5rem;
+        letter-spacing: .2em;
+    }
+
+    h4 {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin: 1rem 0 .5rem;
+        letter-spacing: .2em;
+    }
+
+    ul {
+        margin: .75rem 0;
+        padding: 1rem;
+        list-style-type: disc;
+        list-style-position: inside;
+        li {
+            margin-bottom: .1rem;
+        }
+        li:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.75rem;
+        letter-spacing: 0.09em;
+    }
+
+    figure {
+        margin: .75rem 0;
+        img {
+            border-radius: .125rem;
+        }
+    }
+    pre {
+        overflow-x: auto;
+        margin: .75rem 0;
+    }
+    table tbody {
+        border: 1px solid white;
+        tr {
+            border: 1px solid white;
+            th {
+                border: 1px solid white;
+                padding: 1rem;
+            }
+            td {
+                border: 1px solid white;
+                padding: 0.75rem;
+            }
+        }
+    }
+}
