@@ -9,7 +9,11 @@ const Header = () => {
   const navigationList = navigation.navigations;
 
   return (
-    <header className={'h-20 fixed top-0 left-0 w-full grid place-items-center'}>
+    <header
+      className={
+        'h-20 fixed top-4 left-1/2 -translate-x-1/2 w-[90%] grid place-items-center border rounded-sm'
+      }
+    >
       <nav>
         <ul className='flex justify-center gap-x-4'>
           {navigationList.map(navigation => {

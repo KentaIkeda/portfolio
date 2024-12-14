@@ -1,7 +1,14 @@
-## font
+# Summary of Portfolio.
 
-- en -> Poppins
-- ja
-  - zen kaku gothic new
-  - klee one
-- recommend fot クレー
+## Specification
+
+### Font
+
+- en -> klee one
+- ja -> klee one
+
+### theme
+
+#### round
+
+`rounded-sm`
