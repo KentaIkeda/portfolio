@@ -1,8 +1,8 @@
-import Animate from "@/app/_components/Animate";
-import Information from "@/app/_components/_sections/_Information/Information";
-import Blog from "@/app/_components/_sections/_Blog/Blog";
-import Product from "@/app/_components/_sections/_Product/Product";
-import CuriousAboutWhatsNext from "@/app/_components/CuriousWhatNext/CuriousAboutWhatsNext";
+import Animate from '@/app/_components/Animate';
+import Information from '@/app/_components/_sections/_Information/Information';
+import Blog from '@/app/_components/_sections/_Blog/Blog';
+import Product from '@/app/_components/_sections/_Product/Product';
+import CuriousAboutWhatsNext from '@/app/_components/CuriousWhatNext/CuriousAboutWhatsNext';
 
 export default async function Home() {
   return (
