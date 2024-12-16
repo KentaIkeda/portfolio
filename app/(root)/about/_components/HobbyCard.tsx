@@ -1,18 +1,19 @@
 import { ReactNode } from 'react';
 
 interface Props {
-  children: ReactNode;
+  description: ReactNode;
   cardTitle: string;
 }
 
-const HobbyCard = ({ children, cardTitle }: Props) => {
+const HobbyCard = ({ description, cardTitle }: Props) => {
   return (
-    <div className='border border-sub/10'>
-      <dt>
-        <h3 className='text-2xl'>{cardTitle}</h3>
+    <div className='pl-4 py-2'>
+      <dt className='relative'>
+        <h3 className='text-xl'>{cardTitle}</h3>
+        <div className='absolute top-1/2 -translate-y-1/2 -left-3.5 bg-acc w-2 h-8 rounded-sm' />
       </dt>
       <dd>
-        <p>{children}</p>
+        <p>{description}</p>
       </dd>
     </div>
   );

@@ -9,6 +9,8 @@
 
 ### theme
 
+#### color
+
 #### round
 
 `rounded-sm`

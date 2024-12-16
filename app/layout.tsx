@@ -20,14 +20,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // bg-gradient-to-br from-teal-900 via-teal-950 via-55% to-black
   return (
     <html
       lang='ja'
       className={'text-[14px]'}
     >
-      <body
-        className={`${kleeOne.className} antialiased bg-gradient-to-br from-teal-900 via-teal-950 via-55% to-black text-teal-50 leading-loose`}
-      >
+      <body className={`${kleeOne.className} antialiased bg-[#060f00]  text-teal-50 leading-loose`}>
         <Spotlight>
           <Header />
           <main className={'px-4 min-h-dvh overflow-hidden'}>{children}</main>

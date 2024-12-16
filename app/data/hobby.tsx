@@ -24,8 +24,11 @@ export class Hobbies {
         description: (
           <>
             仕事でもコードを書いていますが、プライベートな時間でもコードを書いています！主に
-            <code>TypeScript</code>
-            を使用していますが、最近はフロントの言語ではなく<code>Rust</code>
+            <code className='bg-neutral-300 text-[#060f00] px-1.5 py-px rounded-sm mx-1'>
+              TypeScript
+            </code>
+            を使用していますが、最近はフロントの言語ではなく
+            <code className='bg-neutral-300 text-[#060f00] px-1.5 py-px rounded-sm mx-1'>Rust</code>
             に興味津々です！
           </>
         ),

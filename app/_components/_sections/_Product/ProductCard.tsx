@@ -13,7 +13,7 @@ const ProductCard = ({ id, title, description, url }: Props) => {
     <div
       id={`prod-card-${id}`}
       className={
-        'group border border-sub/10 p-7 rounded-sm will-change-transform hover:border-opacity-50 hover:-translate-y-[2px] transition-all duration-200'
+        'group border border-sub/10 p-7 rounded-sm will-change-transform hover:border-opacity-50 hover:-translate-y-[2px] transition-all duration-200 shadow-2xl'
       }
     >
       <article>
@@ -33,9 +33,7 @@ const ProductCard = ({ id, title, description, url }: Props) => {
             />
           </div>
           <p
-            className={
-              'text-justify text-slate-300 text-opacity-80 group-hover:text-teal-50 transition-all duration-200'
-            }
+            className={'text-justify text-sub group-hover:text-teal-50 transition-all duration-200'}
           >
             {description}
           </p>

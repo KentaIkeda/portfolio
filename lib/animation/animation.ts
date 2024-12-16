@@ -1,4 +1,4 @@
-import gsap from "gsap";
+import gsap from 'gsap';
 
 /**
  * @date 2024/12/02
@@ -6,27 +6,28 @@ import gsap from "gsap";
  * @param {object} trigger ScrollTriggerのtriggerとなるHTML要素
  * @return {gsap.core.Tween} gsap.core.Tween
  * **/
-export const cardStylish = (
-  elements: HTMLElement[],
-  trigger: HTMLElement
-): gsap.core.Tween => {
-  return gsap.fromTo(elements, {
-    opacity: 0,
-    scale: 1.15,
-    y: -50
-  }, {
-    scrollTrigger: {
-      trigger,
+export const cardStylish = (elements: HTMLElement[], trigger: HTMLElement): gsap.core.Tween => {
+  return gsap.fromTo(
+    elements,
+    {
+      opacity: 0,
+      scale: 1.15,
+      y: -50,
     },
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    stagger: 0.15,
-    duration: 0.5,
-    ease: 'back.out',
-    paused: true,
-  });
-}
+    {
+      scrollTrigger: {
+        trigger,
+      },
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      stagger: 0.15,
+      duration: 0.5,
+      ease: 'back.out',
+      paused: true,
+    }
+  );
+};
 
 /**
  * @date 2024/12/03
@@ -41,22 +42,34 @@ export const likeCodeTimeline = (
   eventElement: HTMLElement,
   eventElementTextElement: HTMLElement,
   onComplete: () => void
-  ): gsap.core.Timeline => {
-  return timeline.to(eventElement, {
-    scale: 1.5,
-    backgroundColor: 'transparent',
-    filter: 'blur(10px)',
-    cursor: 'default',
-  }).to(eventElementTextElement, {
-    visibility: 'visible',
-  }).to(eventElementTextElement, {
-    opacity: 1,
-    ease: 'bounce',
-  }, '<').to(eventElement, {
-    scale: 1,
-    filter: 'blur(0px)',
-    duration: 0.25,
-    ease: 'power3',
-    onComplete: onComplete
-  }, '<');
-}
+): gsap.core.Timeline => {
+  return timeline
+    .to(eventElement, {
+      scale: 1.5,
+      backgroundColor: 'transparent',
+      filter: 'blur(10px)',
+      cursor: 'default',
+    })
+    .to(eventElementTextElement, {
+      visibility: 'visible',
+    })
+    .to(
+      eventElementTextElement,
+      {
+        opacity: 1,
+        ease: 'bounce',
+      },
+      '<'
+    )
+    .to(
+      eventElement,
+      {
+        scale: 1,
+        filter: 'blur(0px)',
+        duration: 0.25,
+        ease: 'power3',
+        onComplete: onComplete,
+      },
+      '<'
+    );
+};
