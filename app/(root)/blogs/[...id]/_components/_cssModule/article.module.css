@@ -28,12 +28,14 @@
   padding: 1rem;
   list-style-type: disc;
   list-style-position: inside;
-  li {
-    margin-bottom: 0.1rem;
-  }
-  li:last-child {
-    margin-bottom: 0;
-  }
+}
+
+.article li {
+  margin-bottom: 0.1rem;
+}
+
+.article li:last-child {
+  margin-bottom: 0;
 }
 
 .article p {
@@ -44,25 +46,31 @@
 
 .article figure {
   margin: 0.75rem 0;
-  img {
-    border-radius: 0.125rem;
-  }
 }
+
+.article figure img {
+  border-radius: 0.125rem;
+}
+
 .article pre {
   overflow-x: auto;
   margin: 0.75rem 0;
 }
+
 .article table tbody {
   border: 1px solid white;
-  tr {
-    border: 1px solid white;
-    th {
-      border: 1px solid white;
-      padding: 1rem;
-    }
-    td {
-      border: 1px solid white;
-      padding: 0.75rem;
-    }
-  }
+}
+
+.article table tbody tr {
+  border: 1px solid white;
+}
+
+.article table tbody tr th {
+  border: 1px solid white;
+  padding: 1rem;
+}
+
+.article table tbody tr td {
+  border: 1px solid white;
+  padding: 0.75rem;
 }
