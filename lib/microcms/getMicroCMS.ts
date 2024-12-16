@@ -1,30 +1,39 @@
-import {client} from "@/lib/microcms/microcms";
-import type { BlogType, BlogContents, ProductType } from "@/lib/microcms/microcms";
+import { client } from '@/lib/microcms/microcms';
+import type { BlogType, BlogContents, ProductType } from '@/lib/microcms/microcms';
 
-export const getIndivisualBlog = (id: string):Promise<BlogContents> => {
-  return client.get({
+export const getIndivisualBlog = (id: string): Promise<BlogContents> => {
+  const indivisualBlogData = client.get({
     endpoint: 'blogs',
     contentId: id,
     customRequestInit: {
-      cache: 'no-store'
-    }
-  })
-}
+      next: {
+        revalidate: 60,
+      },
+    },
+  });
+  return indivisualBlogData;
+};
 
 export const getAllBlogs = (): Promise<BlogType> => {
-  return client.get({
+  const allBlogsData = client.get({
     endpoint: 'blogs',
     customRequestInit: {
-      cache: 'no-store'
-    }
-  })
-}
+      next: {
+        revalidate: 60,
+      },
+    },
+  });
+  return allBlogsData;
+};
 
 export const getAllProducts = (): Promise<ProductType> => {
-  return client.get({
+  const allProductsData = client.get({
     endpoint: 'products',
     customRequestInit: {
-      cache: 'no-store'
-    }
-  })
-}
+      next: {
+        revalidate: 60,
+      },
+    },
+  });
+  return allProductsData;
+};
