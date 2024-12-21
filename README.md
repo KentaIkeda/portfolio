@@ -11,6 +11,8 @@
 
 #### color
 
+See `tailwind.config.ts`
+
 #### round
 
 `rounded-sm`
