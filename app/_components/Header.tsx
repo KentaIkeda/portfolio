@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header
       className={
-        'h-20 fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-screen-sm grid place-items-center border border-sub/10 rounded-sm backdrop-blur-sm shadow-2xl'
+        'h-20 fixed z-50 top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-screen-sm grid place-items-center border border-sub/10 rounded-sm backdrop-blur-sm shadow-2xl'
       }
     >
       <nav>
