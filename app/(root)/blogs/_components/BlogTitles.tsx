@@ -1,19 +1,25 @@
 import { getAllBlogs } from '@/lib/microcms/getMicroCMS';
 
-import Link from 'next/link';
+import BlogCard from '@/app/_components/_sections/_Blog/BlogCard';
+import BlogCardSpacer from '@/app/_components/BlogCardSpacer';
 
 const BlogTitles = async () => {
   const blogs = await getAllBlogs();
+  console.log(blogs);
   return (
-    <ul>
-      {blogs.contents.map(content => {
+    <BlogCardSpacer>
+      {blogs.contents.map((content, i) => {
         return (
-          <li key={content.id}>
-            <Link href={`/blogs/${content.id}`}>{content.title}</Link>
-          </li>
+          <BlogCard
+            description={content.description}
+            title={content.title}
+            key={content.id}
+            i={i}
+            id={content.id}
+          />
         );
       })}
-    </ul>
+    </BlogCardSpacer>
   );
 };
 
