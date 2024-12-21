@@ -14,7 +14,7 @@ export const getIndivisualBlog = (id: string): Promise<BlogContent> => {
   return indivisualBlogData;
 };
 
-export const getAllBlogs = (): Promise<BlogType> => {
+export const getAllBlogs = (categoryId?: string): Promise<BlogType> => {
   const allBlogsData = client.get({
     endpoint: 'blogs',
     customRequestInit: {
@@ -22,6 +22,7 @@ export const getAllBlogs = (): Promise<BlogType> => {
         revalidate: 60,
       },
     },
+    queries: { filters: categoryId ? `category[equals]${categoryId}` : '' },
   });
   return allBlogsData;
 };

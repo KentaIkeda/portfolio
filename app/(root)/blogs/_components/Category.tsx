@@ -13,7 +13,7 @@ const Category = async () => {
             className='inline-block bg-acc text-white rounded-sm hover:bg-acc-animated transition-normal'
           >
             <Link
-              href={`/categories/${category.id}`}
+              href={`/category/${category.id}`}
               className='text-xs block w-full h-full px-3 py-1.5'
             >
               {category.name}

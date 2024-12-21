@@ -1,13 +1,10 @@
 import { getIndivisualBlog } from '@/lib/microcms/getMicroCMS';
+
 import Article from './_components/Article';
 
-interface Props {
-  params: Promise<{
-    id: string;
-  }>;
-}
+import { Params } from '@/app/types/types';
 
-const BlogPage = async ({ params }: Props) => {
+const BlogPage = async ({ params }: Params) => {
   const { id } = await params;
   const blogData = await getIndivisualBlog(id);
 
