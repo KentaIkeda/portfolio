@@ -1,3 +1,4 @@
+import { Tag } from '@/app/_components/Icon/icons';
 import { getAllCategories } from '@/lib/microcms/getMicroCMS';
 
 import Link from 'next/link';
@@ -14,9 +15,13 @@ const Category = async () => {
           >
             <Link
               href={`/category/${category.id}`}
-              className='text-xs block w-full h-full px-3 py-1.5'
+              className='text-xs w-full h-full px-3 py-1.5 flex items-center justify-center space-x-1.5'
             >
-              {category.name}
+              <Tag
+                strokeWidth={2}
+                className='size-4'
+              />
+              <span>{category.name}</span>
             </Link>
           </li>
         );
