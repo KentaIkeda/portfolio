@@ -1,5 +1,11 @@
 import { client } from '@/lib/microcms/microcms';
-import type { BlogType, BlogContent, ProductType, CategoryType } from '@/lib/microcms/microcms';
+import type {
+  BlogType,
+  BlogContent,
+  ProductType,
+  CategoryType,
+  CategoryContent,
+} from '@/lib/microcms/microcms';
 
 /**
  * @param {string} id ブログに紐づくID
@@ -78,4 +84,21 @@ export const getAllCategories = (): Promise<CategoryType> => {
     },
   });
   return allCategoriesData;
+};
+
+/**
+ * @param {string} id カテゴリーに紐づくID
+ * @returns {Promise<CategoryContent>} カテゴリーの個別データ
+ * **/
+export const getIndivisualCategory = (id: string): Promise<CategoryContent> => {
+  const indivisualCategoryData = client.get({
+    endpoint: 'categories',
+    contentId: id,
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
+  });
+  return indivisualCategoryData;
 };
