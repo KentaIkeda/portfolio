@@ -15,7 +15,7 @@ const Gear = () => {
             alt=''
             width={HHKBImage.width}
             height={HHKBImage.height}
-            className='group-hover:scale-110 duration-200 transition-all'
+            className='group-hover:scale-110 transition-normal'
           />
         </div>
         <figcaption className='px-4'>
