@@ -26,7 +26,7 @@ export default function RootLayout({
       lang='ja'
       className={'text-[14px]'}
     >
-      <body className={`${kleeOne.className} antialiased bg-[#060f00]  text-teal-50 leading-loose`}>
+      <body className={`${kleeOne.className} antialiased bg-base  text-main leading-loose`}>
         <Spotlight>
           <Header />
           <main className={'px-4 min-h-dvh overflow-hidden'}>{children}</main>

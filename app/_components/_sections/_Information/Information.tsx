@@ -15,7 +15,7 @@ const Information = () => {
     >
       <article className={'text-justify text-sm rounded-[5px] p-4 space-y-2.5'}>
         <p>
-          ようこそ、<span className={''}>{name}</span>
+          ようこそ、<span>{name}</span>
           と申します。1996年2月5日
           <wbr />
           に生まれ、現在はフロントエンドエンジニアとして活動をしています。

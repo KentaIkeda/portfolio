@@ -5,7 +5,6 @@ import BlogCardSpacer from '@/app/_components/BlogCardSpacer';
 
 const BlogTitles = async () => {
   const blogs = await getAllBlogs();
-  console.log(blogs);
   return (
     <BlogCardSpacer>
       {blogs.contents.map((content, i) => {

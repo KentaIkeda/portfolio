@@ -15,8 +15,8 @@ const BlogCard = ({ id, title, description, i }: Props) => {
       id={`blog-card-${i}`}
     >
       <Link href={`/blogs/${id}`}>
-        <h2 className={'group-hover:text-acc transition-normal'}>{title}</h2>
-        <p className={'text-justify text-sub group-hover:text-teal-50 transition-normal'}>
+        <h2 className={'group-hover:text-accent1 transition-normal'}>{title}</h2>
+        <p className={'text-justify text-sub group-hover:text-main transition-normal'}>
           {description}
         </p>
       </Link>

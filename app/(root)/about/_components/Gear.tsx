@@ -24,7 +24,7 @@ const Gear = () => {
               href='https://www.pfu.ricoh.com/direct/hhkb/#list_hybrid_types'
               target='_black'
               rel='noreferrer'
-              className='text-acc underline underline-offset-1'
+              className='text-accent1 underline underline-offset-1'
             >
               HHKB Professional HYBRID Type-s
             </a>

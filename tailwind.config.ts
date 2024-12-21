@@ -5,9 +5,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        sub: '#9ca3af',
-        acc: '#ec4899',
-        'acc-animated': '#db2777',
+        base: '#18181b',
+        main: '#f4f4f5',
+        sub: '#71717a',
+        accent1: '#22d3ee',
+        accent2: '#818cf8',
       },
     },
   },

@@ -11,7 +11,7 @@ const Category = async () => {
         return (
           <li
             key={category.id}
-            className='inline-block bg-acc text-white rounded-sm hover:bg-acc-animated transition-normal'
+            className='inline-block bg-accent1 text-main rounded-sm transition-normal'
           >
             <Link
               href={`/category/${category.id}`}

@@ -17,7 +17,7 @@ const page = async ({ params }: Params) => {
       <Category />
       <p className='mt-4'>
         現在は
-        <em className='not-italic bg-acc px-3 py-1.5 text-xs mx-1 rounded-sm'>
+        <em className='not-italic bg-accent1 px-3 py-1.5 text-xs mx-1 rounded-sm'>
           {indivisualCategory.name}
         </em>
         でカテゴライズされています

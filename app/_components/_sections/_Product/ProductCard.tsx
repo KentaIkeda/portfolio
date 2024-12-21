@@ -21,7 +21,7 @@ const ProductCard = ({ id, title, description, url }: Props) => {
           <div className={'flex items-center justify-between'}>
             <h2
               className={
-                'relative -translate-y-[2.5%] text-xl group-hover:text-acc transition-normal'
+                'relative -translate-y-[2.5%] text-xl group-hover:text-accent1 transition-normal'
               }
             >
               {title}
@@ -32,7 +32,7 @@ const ProductCard = ({ id, title, description, url }: Props) => {
               text={'PLAY'}
             />
           </div>
-          <p className={'text-justify text-sub group-hover:text-teal-50 transition-normal'}>
+          <p className={'text-justify text-sub group-hover:text-main transition-normal'}>
             {description}
           </p>
         </div>
