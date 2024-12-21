@@ -5,6 +5,7 @@ import { getAllBlogsByCategory, getIndivisualCategory } from '@/lib/microcms/get
 import BlogCard from '@/app/_components/_sections/_Blog/BlogCard';
 import Category from '../../blogs/_components/Category';
 import BlogCardSpacer from '@/app/_components/BlogCardSpacer';
+import MaxWidth from '@/app/_components/MaxWidth';
 
 const page = async ({ params }: Params) => {
   const { id } = await params;
@@ -12,7 +13,7 @@ const page = async ({ params }: Params) => {
   const indivisualCategory = await getIndivisualCategory(id);
 
   return (
-    <>
+    <MaxWidth>
       <Category />
       <p className='mt-4'>
         現在は
@@ -34,7 +35,7 @@ const page = async ({ params }: Params) => {
           );
         })}
       </BlogCardSpacer>
-    </>
+    </MaxWidth>
   );
 };
 

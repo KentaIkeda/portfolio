@@ -3,6 +3,7 @@ import Information from '@/app/_components/_sections/_Information/Information';
 import Blog from '@/app/_components/_sections/_Blog/Blog';
 import Product from '@/app/_components/_sections/_Product/Product';
 import CuriousAboutWhatsNext from '@/app/_components/CuriousWhatNext/CuriousAboutWhatsNext';
+import MaxWidth from './_components/MaxWidth';
 
 export default async function Home() {
   return (
@@ -13,10 +14,12 @@ export default async function Home() {
           <CuriousAboutWhatsNext />
         </div>
       </div>
-      <div className={'space-y-28'}>
-        <Blog />
-        <Product />
-      </div>
+      <MaxWidth>
+        <div className={'space-y-28'}>
+          <Blog />
+          <Product />
+        </div>
+      </MaxWidth>
     </Animate>
   );
 }
