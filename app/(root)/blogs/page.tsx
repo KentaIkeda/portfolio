@@ -1,21 +1,17 @@
-import { getAllBlogs } from '@/lib/microcms/getMicroCMS';
+import Category from './_components/Category';
+import BlogTitles from './_components/BlogTitles';
 
-import Link from 'next/link';
+import { Suspense } from 'react';
 
 const Page = async () => {
-  const blogs = await getAllBlogs();
-
   return (
     <div>
-      <ul>
-        {blogs.contents.map(content => {
-          return (
-            <li key={content.id}>
-              <Link href={`/blogs/${content.id}`}>{content.title}</Link>
-            </li>
-          );
-        })}
-      </ul>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Category />
+      </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <BlogTitles />
+      </Suspense>
     </div>
   );
 };
