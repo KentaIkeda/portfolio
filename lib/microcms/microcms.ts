@@ -25,34 +25,19 @@ const client = createClient({
   apiKey: getEnvViriable().api || '',
 });
 
-export type ProductType = {
-  contents: ProductContent[];
-  totalCount: 1;
-  offset: 0;
-  limit: 10;
-};
-
-export type ProductContent = {
-  title: string;
-  description: string;
-  url: string;
-  publishedDate: Date;
-} & ContentDefault;
-
-export type BlogType = {
-  contents: BlogContents[];
+/**
+ * コンテンツを含む全ての型定義
+ * **/
+export type InclutdeContents<T> = {
+  contents: T[];
   totalCount: number;
   offset: number;
   limit: number;
 };
 
-export type BlogContents = {
-  title: string;
-  content: string;
-  eyecatch: Eyecatch | undefined;
-  category: Category;
-  description: string;
-} & ContentDefault;
+/**
+ * MicroCMSで用意しているデフォルトでついているフィールド
+ * **/
 export type ContentDefault = {
   id: string;
   createdAt: Date;
@@ -60,18 +45,49 @@ export type ContentDefault = {
   publishedAt: Date;
   revisedAt: Date;
 };
+
+/**
+ * Categoryフィールドの型定義
+ * **/
+export type CategoryContent = {
+  name: string;
+} & ContentDefault;
+
+/**
+ * Productフィールドの型定義
+ * **/
+export type ProductContent = {
+  title: string;
+  description: string;
+  url: string;
+  publishedDate: Date;
+} & ContentDefault;
+
+/**
+ * Eyecatchの型定義
+ * **/
 export type Eyecatch = {
   url: string;
   height: number;
   width: number;
 };
-export type Category = {
-  id: string;
-  createdAt: Date;
-  updatedAt: Date;
-  publishedAt: Date;
-  revisedAt: Date;
-  name: string;
-};
+
+/**
+ * Blogフィールドの型定義
+ * **/
+export type BlogContent = {
+  title: string;
+  content: string;
+  eyecatch?: Eyecatch;
+  category: CategoryContent;
+  description: string;
+} & ContentDefault;
+
+/**
+ * 最終的に返す型定義
+ * **/
+export type ProductType = InclutdeContents<ProductContent>;
+export type BlogType = InclutdeContents<BlogContent>;
+export type CategoryType = InclutdeContents<CategoryContent>;
 
 export { client };
