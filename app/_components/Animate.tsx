@@ -1,19 +1,15 @@
 'use client';
 
-import { useEffect, ReactNode } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  cardStylish,
-  likeCodeTimeline
-} from "@/lib/animation/animation";
+import { useEffect, ReactNode } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { cardStylish, likeCodeTimeline } from '@/lib/animation/animation';
 
 interface Props {
   children: ReactNode;
 }
 
 const Animate = ({ children }: Props) => {
-
   // This useEffect is for blog card.
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -26,7 +22,7 @@ const Animate = ({ children }: Props) => {
 
     return () => {
       blogCardAnimation.kill();
-    }
+    };
   }, []);
 
   // This useEffect is for product card.
@@ -41,7 +37,7 @@ const Animate = ({ children }: Props) => {
 
     return () => {
       prodCardAnimation.kill();
-    }
+    };
   }, []);
 
   // This useEffect is for CuriousWhatNext.tsx.
@@ -53,20 +49,30 @@ const Animate = ({ children }: Props) => {
     const NEXT_ELEMENT_INDEX = 1;
 
     const handleClickCurious = (e: MouseEvent) => {
-      const tl = gsap.timeline({duration: .5, ease: 'power3'});
-      likeCodeTimeline(tl, e.target as HTMLElement, (e.target as HTMLElement).children[FIRST_ELEMENT_INDEX] as HTMLElement, () => {
-        tl.kill();
-        likeCodes[CURIOUS_ELEMENT_INDEX].removeEventListener('click', handleClickCurious);
-      })
-    }
+      const tl = gsap.timeline({ duration: 0.5, ease: 'power3' });
+      likeCodeTimeline(
+        tl,
+        e.target as HTMLElement,
+        (e.target as HTMLElement).children[FIRST_ELEMENT_INDEX] as HTMLElement,
+        () => {
+          tl.kill();
+          likeCodes[CURIOUS_ELEMENT_INDEX].removeEventListener('click', handleClickCurious);
+        }
+      );
+    };
 
     const handleClickNext = (e: MouseEvent) => {
-      const tl = gsap.timeline({duration: .5, ease: 'power3'});
-      likeCodeTimeline(tl, e.target as HTMLElement, (e.target as HTMLElement).children[FIRST_ELEMENT_INDEX] as HTMLElement, () => {
-        tl.kill();
-        likeCodes[NEXT_ELEMENT_INDEX].removeEventListener('click', handleClickNext);
-      })
-    }
+      const tl = gsap.timeline({ duration: 0.5, ease: 'power3' });
+      likeCodeTimeline(
+        tl,
+        e.target as HTMLElement,
+        (e.target as HTMLElement).children[FIRST_ELEMENT_INDEX] as HTMLElement,
+        () => {
+          tl.kill();
+          likeCodes[NEXT_ELEMENT_INDEX].removeEventListener('click', handleClickNext);
+        }
+      );
+    };
 
     likeCodes[CURIOUS_ELEMENT_INDEX].addEventListener('click', handleClickCurious);
     likeCodes[NEXT_ELEMENT_INDEX].addEventListener('click', handleClickNext);
@@ -74,11 +80,77 @@ const Animate = ({ children }: Props) => {
     return () => {
       likeCodes[CURIOUS_ELEMENT_INDEX].removeEventListener('click', handleClickCurious);
       likeCodes[NEXT_ELEMENT_INDEX].removeEventListener('click', handleClickNext);
-    }
+    };
   }, []);
 
-  return (
-    <>{children}</>
-  )
-}
-export default Animate
+  // This useEffect is for SNS icons.
+  useEffect(() => {
+    const snsIcons: HTMLElement[] = gsap.utils.toArray('.sns_icon');
+    const snsAnimation = gsap.fromTo(
+      snsIcons,
+      {
+        opacity: 0,
+        y: 25,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.1,
+        duration: 0.7,
+        ease: 'power2',
+        paused: true,
+      }
+    );
+    snsAnimation.play();
+    return () => {
+      snsAnimation.kill();
+    };
+  }, []);
+
+  // This useEffect is for information text.
+  useEffect(() => {
+    const informationText = document.getElementById('information-text')!;
+    const informationAnimation = gsap.fromTo(
+      informationText,
+      {
+        opacity: 0,
+        y: 25,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power2',
+        paused: true,
+      }
+    );
+    informationAnimation.play();
+    return () => {
+      informationAnimation.kill();
+    };
+  }, []);
+
+  // This useEffect is for curious text.
+  useEffect(() => {
+    const curiousText = document.getElementById('curious-text')!;
+    const curiousAnimation = gsap.fromTo(
+      curiousText,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1.5,
+        ease: 'power2',
+        paused: true,
+      }
+    );
+    curiousAnimation.play();
+    return () => {
+      curiousAnimation.kill();
+    };
+  }, []);
+
+  return <>{children}</>;
+};
+export default Animate;

@@ -13,7 +13,10 @@ const Information = () => {
       id={'information'}
       className={'space-y-8'}
     >
-      <article className={'text-justify text-sm rounded-[5px] p-4 space-y-2.5'}>
+      <article
+        id='information-text'
+        className={'text-justify text-sm rounded-[5px] p-4 space-y-2.5'}
+      >
         <p>
           ようこそ、<span>{name}</span>
           と申します。1996年2月5日
@@ -28,7 +31,10 @@ const Information = () => {
         <ul className={'flex justify-center gap-x-4'}>
           {SNSInfo.map(info => {
             return (
-              <li key={info.title}>
+              <li
+                className='sns_icon'
+                key={info.title}
+              >
                 <a href={info.href}>{info.icon}</a>
               </li>
             );
