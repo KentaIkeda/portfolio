@@ -8,7 +8,7 @@ import MaxWidth from './_components/MaxWidth';
 export default async function Home() {
   return (
     <Animate>
-      <div className={'h-dvh grid place-items-center'}>
+      <div className={'h-[calc(100dvh_-_98px)] grid place-items-center'}>
         <div className={'space-y-20'}>
           <Information />
           <CuriousAboutWhatsNext />

@@ -8,7 +8,7 @@ const layout = ({ children }: Props) => {
   return (
     <div
       data-page-except-home
-      className='mt-28'
+      className='mt-8'
     >
       {children}
     </div>

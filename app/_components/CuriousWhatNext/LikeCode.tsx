@@ -12,7 +12,7 @@ const LikeCode = ({ children, dataset }: Props) => {
     <span
       data-like-code={dataset}
       className={
-        'like_code inline-block bg-acc text-pink-500 text-lg py-1 px-1.5 rounded-sm cursor-pointer'
+        'like_code inline-block bg-accent2 text-accent2 text-lg py-1 px-1.5 rounded-sm cursor-pointer'
       }
     >
       <span className={'like_code_text invisible opacity-0 font-bold'}>{children}</span>

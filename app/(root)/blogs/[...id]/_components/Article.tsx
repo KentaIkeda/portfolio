@@ -7,6 +7,7 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/github-dark-dimmed.css';
 
 import { formatDate } from '@/lib/formatDate';
+import { cp } from '@/app/fonts/fonts';
 
 interface ArticleProps {
   title: string;
@@ -28,7 +29,7 @@ const Article = ({ content, title, updatedAt }: ArticleProps) => {
   return (
     <>
       <hgroup className='my-8'>
-        <h1 className={'text-2xl text-center font-black line-clamp-1'}>{title}</h1>
+        <h1 className={`${cp.className} text-2xl text-center font-black line-clamp-1`}>{title}</h1>
         <time
           dateTime={dateTime}
           className='text-right text-sub text-xs mt-2 block'

@@ -7,12 +7,14 @@ import { Suspense } from 'react';
 const Page = async () => {
   return (
     <MaxWidth>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Category />
-      </Suspense>
-      <Suspense fallback={<div>Loading...</div>}>
-        <BlogTitles />
-      </Suspense>
+      <div className='space-y-8'>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Category />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <BlogTitles />
+        </Suspense>
+      </div>
     </MaxWidth>
   );
 };

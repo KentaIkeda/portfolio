@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import './globals.css';
 import { kleeOne } from '@/app/fonts/fonts';
+
 import Header from '@/app/_components/Header';
 import Footer from '@/app/_components/_sections/_Footer/Footer';
 import Spotlight from '@/app/_components/Spotlight';
