@@ -6,8 +6,8 @@ import BlogCard from '@/app/_components/_sections/_Blog/BlogCard';
 import Category from '../../blogs/_components/Category';
 import BlogCardSpacer from '@/app/_components/BlogCardSpacer';
 import MaxWidth from '@/app/_components/MaxWidth';
-import { Tag } from '@/app/_components/Icon/icons';
-import { cp } from '@/app/fonts/fonts';
+
+import CategoryItem from '@/app/_components/CategoryItem';
 
 const page = async ({ params }: Params) => {
   const { id } = await params;
@@ -19,13 +19,10 @@ const page = async ({ params }: Params) => {
       <Category />
       <p className='my-8'>
         現在は
-        <span className='inline-flex items-center justify-center space-x-1.5 bg-accent1 text-main text-xs rounded-sm px-3 py-1.5 mx-1 translate-y-px'>
-          <Tag
-            strokeWidth={2}
-            className='size-4'
-          />
-          <span className={`${cp.className}`}>{indivisualCategory.name}</span>
-        </span>
+        <CategoryItem
+          href={`/category/${indivisualCategory.id}`}
+          tagName={indivisualCategory.name}
+        />
         でカテゴライズされています
       </p>
       <BlogCardSpacer>
