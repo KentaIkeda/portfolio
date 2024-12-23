@@ -3,17 +3,15 @@ import BlogTitles from './_components/BlogTitles';
 import MaxWidth from '@/app/_components/MaxWidth';
 
 import { Suspense } from 'react';
-import BlogTitlesSkeleton from './_components/_Skeleton/BlogTitlesSkeleton';
-import CategorySkeleton from './_components/_Skeleton/CategorySkeleton';
 
 const Page = async () => {
   return (
     <MaxWidth>
       <div className='space-y-8'>
-        <Suspense fallback={<CategorySkeleton />}>
+        <Suspense fallback={<div>Loading...</div>}>
           <Category />
         </Suspense>
-        <Suspense fallback={<BlogTitlesSkeleton />}>
+        <Suspense fallback={<div>Loading...</div>}>
           <BlogTitles />
         </Suspense>
       </div>
