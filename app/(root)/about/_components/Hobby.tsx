@@ -7,7 +7,7 @@ const Hobby = () => {
   return (
     <>
       <h2>
-        最初に<em className='not-italic'>私の趣味</em>についてです。
+        <em className='not-italic'>私の趣味</em>
       </h2>
       <dl className='space-y-8'>
         {hobbies.map(hobby => {
