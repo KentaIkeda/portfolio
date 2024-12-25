@@ -8,8 +8,10 @@ import 'highlight.js/styles/github-dark-dimmed.css';
 
 import { formatDate } from '@/lib/formatDate';
 import { cp } from '@/app/fonts/fonts';
-import CategoryItem from '@/app/_components/CategoryItem';
 import { CategoryContent } from '@/lib/microcms/microcms';
+
+import CategoryItem from '@/app/_components/CategoryItem';
+import { History } from 'lucide-react';
 
 interface ArticleProps {
   title: string;
@@ -33,17 +35,25 @@ const Article = ({ content, title, updatedAt, category }: ArticleProps) => {
     <>
       <hgroup className='my-8'>
         <h1 className={`${cp.className} text-2xl text-center font-black line-clamp-1`}>{title}</h1>
-        <div className='flex justify-end space-x-1.5 my-8'>
-          <CategoryItem
-            href={category.id}
-            tagName={category.name}
-          />
-          <time
-            dateTime={dateTime}
-            className='text-sub text-xs mt-2 block'
-          >
-            {date}
-          </time>
+        <div className='flex justify-end my-8'>
+          <div className='flex flex-col items-end space-y-1.5'>
+            <div className='flex items-center space-x-px'>
+              <History
+                size={14}
+                className='text-sub'
+              />
+              <time
+                dateTime={dateTime}
+                className='text-sub text-xs block'
+              >
+                {date}
+              </time>
+            </div>
+            <CategoryItem
+              href={category.id}
+              tagName={category.name}
+            />
+          </div>
         </div>
       </hgroup>
       <div

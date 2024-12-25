@@ -8,7 +8,6 @@ import MaxWidth from '@/app/_components/MaxWidth';
 const BlogPage = async ({ params }: Params) => {
   const { id } = await params;
   const blogData = await getIndivisualBlog(id);
-  console.log(blogData);
 
   return (
     <MaxWidth>

@@ -17,14 +17,12 @@ const Information = () => {
         id='information-text'
         className={'text-justify text-sm rounded-[5px] p-4 space-y-2.5'}
       >
+        <p className='text-center text-lg'>ようこそ！</p>
         <p>
-          ようこそ、<span>{name}</span>
+          <span className='text-lg tracking-wide'>{name}</span>
           と申します。1996年2月5日
           <wbr />
           に生まれ、現在はフロントエンドエンジニアとして活動をしています。
-        </p>
-        <p>
-          AIが発達した今、AIではなく人間がエンドユーザーを念頭に置いて開発することに意味がある。と私は考えます。
         </p>
       </article>
       <article id={'SNS'}>

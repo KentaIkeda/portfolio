@@ -60,6 +60,14 @@
   margin: 0.75rem 0;
 }
 
+.article code:not(pre code) {
+  background-color: #ffffff;
+  padding: 0.25rem;
+  border-radius: 0.125rem;
+  color: #18181b;
+  margin: 0 0.25rem;
+}
+
 .article table tbody {
   border: 1px solid white;
 }
