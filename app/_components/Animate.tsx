@@ -1,9 +1,11 @@
 'use client';
 
-import { useEffect, ReactNode } from 'react';
 import gsap from 'gsap';
+import { useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cardStylish, likeCodeTimeline } from '@/lib/animation/animation';
+
+import type { ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
@@ -109,7 +111,7 @@ const Animate = ({ children }: Props) => {
 
   // This useEffect is for information text.
   useEffect(() => {
-    const informationText = document.getElementById('information-text')!;
+    const informationText = document.getElementById('information-text');
     const informationAnimation = gsap.fromTo(
       informationText,
       {
@@ -132,7 +134,7 @@ const Animate = ({ children }: Props) => {
 
   // This useEffect is for curious text.
   useEffect(() => {
-    const curiousText = document.getElementById('curious-text')!;
+    const curiousText = document.getElementById('curious-text');
     const curiousAnimation = gsap.fromTo(
       curiousText,
       {

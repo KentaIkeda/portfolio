@@ -1,28 +1,20 @@
-import React from 'react';
 import { SNSInfo } from '@/lib/SNSInfo';
 
 const Information = () => {
-  const name =
-    process.env.NODE_ENV === 'development'
-      ? process.env.NEXT_PUBLIC_MY_NAME
-      : process.env.NODE_ENV === 'production'
-      ? process.env.MY_NAME
-      : null;
   return (
     <section
-      id={'information'}
-      className={'space-y-8'}
+      id='information'
+      className='space-y-8'
     >
       <article
         id='information-text'
-        className={'text-justify text-sm rounded-[5px] p-4 space-y-2.5'}
+        className='text-justify text-sm rounded-[5px] p-4 space-y-2.5'
       >
-        <p className='text-center text-lg'>ようこそ！</p>
         <p>
-          <span className='text-lg tracking-wide'>{name}</span>
-          と申します。1996年2月5日
+          <span className='text-lg tracking-wide'>池田健太</span>
+          と申します。
           <wbr />
-          に生まれ、現在はフロントエンドエンジニアとして活動をしています。
+          現在はフロントエンドエンジニアとして活動をしています。
         </p>
       </article>
       <article id={'SNS'}>
@@ -30,8 +22,8 @@ const Information = () => {
           {SNSInfo.map(info => {
             return (
               <li
-                className='sns_icon'
                 key={info.title}
+                className='sns_icon'
               >
                 <a href={info.href}>{info.icon}</a>
               </li>
