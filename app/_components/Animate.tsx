@@ -7,11 +7,7 @@ import { cardStylish } from '@/lib/animation/animation';
 
 import type { ReactNode } from 'react';
 
-interface Props {
-  children: ReactNode;
-}
-
-const Animate = ({ children }: Props) => {
+const Animate = ({ children }: { children: ReactNode }) => {
   // This useEffect is for blog card.
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

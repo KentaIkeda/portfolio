@@ -1,9 +1,6 @@
-'use client';
-
 import Link from 'next/link';
 
 import { Navigation } from '@/app/data/navigations';
-
 import { cp } from '../fonts/fonts';
 
 const Header = () => {

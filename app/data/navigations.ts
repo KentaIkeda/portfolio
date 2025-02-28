@@ -1,7 +1,7 @@
 export type NavigationItem = {
-  name: string,
-  href: string,
-}
+  name: string;
+  href: string;
+};
 
 export class NavItem {
   name: string;
@@ -36,17 +36,14 @@ export class Navigation {
         href: '/',
       },
       {
-        name: 'about',
-        href: '/about',
-      },
-      {
         name: 'blogs',
         href: '/blogs',
       },
       {
         name: 'products',
         href: '/products',
-      }];
+      },
+    ];
 
     navItemData.forEach(navItem => {
       this.navigations.push(new NavItem(navItem.name, navItem.href));

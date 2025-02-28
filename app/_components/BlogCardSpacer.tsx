@@ -1,8 +1,6 @@
-interface Props {
-  children: React.ReactNode;
-}
+import type { ReactNode } from 'react';
 
-const BlogCardSpacer = ({ children }: Props) => {
+const BlogCardSpacer = ({ children }: { children: ReactNode }) => {
   return <div className='space-y-16'>{children}</div>;
 };
 
