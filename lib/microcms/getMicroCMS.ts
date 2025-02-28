@@ -40,6 +40,20 @@ export const getAllBlogs = (): Promise<BlogType> => {
 };
 
 /**
+ * 任意の数分ブログデータを取得する関数
+ * @param {number} n - 取得する数
+ */
+export const getBlogsOnlyN = (n: number): Promise<BlogType> => {
+  const blogData = client.get({
+    endpoint: 'blogs',
+    queries: {
+      limit: n,
+    },
+  });
+  return blogData;
+};
+
+/**
  * @param {string} categoryId カテゴリーに紐づくID
  * @returns {Promise<BlogType>} カテゴリーに紐づく全てのブログデータ
  * **/
