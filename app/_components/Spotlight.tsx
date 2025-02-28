@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
 
 interface Props {
@@ -8,6 +9,8 @@ interface Props {
 }
 
 const Spotlight = ({ children }: Props) => {
+  const pathname = usePathname();
+
   useEffect(() => {
     const spotlight = document.getElementById('spotlight');
 
@@ -29,7 +32,7 @@ const Spotlight = ({ children }: Props) => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <>

@@ -29,47 +29,23 @@ export const cardStylish = (elements: HTMLElement[], trigger: HTMLElement): gsap
   );
 };
 
-/**
- * @date 2024/12/03
- * @param {gsap.core.Timeline} timeline イニシャライズされたタイムライン
- * @param {object} eventElement クリックされる想定のHTML要素。このドキュメントの書き方は良くないと思う
- * @param {object} eventElementTextElement eventElementの子要素にあるHTML要素
- * @param {object} onComplete タイムラインが完了した時に処理されるコールバック関数
- * @return {gsap.core.Timeline} gsap.core.Timeline
- * **/
-export const likeCodeTimeline = (
-  timeline: gsap.core.Timeline,
-  eventElement: HTMLElement,
-  eventElementTextElement: HTMLElement,
-  onComplete: () => void
-): gsap.core.Timeline => {
-  return timeline
-    .to(eventElement, {
-      scale: 1.5,
-      backgroundColor: 'transparent',
-      filter: 'blur(10px)',
-      cursor: 'default',
-    })
-    .to(eventElementTextElement, {
-      visibility: 'visible',
-    })
-    .to(
-      eventElementTextElement,
-      {
-        opacity: 1,
-        ease: 'bounce',
+export const blurUpFromNToInitPosition = (target: HTMLElement[], fromY: number) => {
+  return gsap.fromTo(
+    target,
+    {
+      opacity: 0,
+      y: fromY,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'circ.inOut',
+      paused: true,
+      stagger: {
+        each: 0.025,
+        from: 'random',
       },
-      '<'
-    )
-    .to(
-      eventElement,
-      {
-        scale: 1,
-        filter: 'blur(0px)',
-        duration: 0.25,
-        ease: 'power3',
-        onComplete: onComplete,
-      },
-      '<'
-    );
+    }
+  );
 };
