@@ -1,11 +1,5 @@
-import { Klee_One } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Roboto } from "next/font/google";
 
-export const kleeOne = Klee_One({
-  weight: ['400', '600'],
-  subsets: ['latin'],
-});
-
-export const cp = localFont({
-  src: './CP Font.otf',
+export const roboto = Roboto({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
