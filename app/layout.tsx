@@ -1,10 +1,6 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import './globals.css';
 import { kleeOne } from '@/app/fonts/fonts';
-
-import Header from '@/app/_components/Header';
-import Footer from '@/app/_components/_sections/_Footer/Footer';
-import Spotlight from '@/app/_components/Spotlight';
 
 export const metadata: Metadata = {
   title: 'KENTA2525',
@@ -26,12 +22,8 @@ export default function RootLayout({
       lang='ja'
       className={'text-[14px]'}
     >
-      <body className={`${kleeOne.className} antialiased bg-base  text-main leading-loose`}>
-        <Spotlight>
-          <Header />
-          <main className={'px-4 min-h-dvh overflow-hidden'}>{children}</main>
-          <Footer />
-        </Spotlight>
+      <body className={`${kleeOne.className} antialiased`}>
+        <main className={'px-4 min-h-dvh overflow-hidden'}>{children}</main>
       </body>
     </html>
   );
