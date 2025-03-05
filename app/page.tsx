@@ -1,19 +1,5 @@
-import { fetchAllBlog } from "@/lib/microcms/getMicroCMS";
+import Link from "next/link";
 
 export default async function Home() {
-  const { contents } = await fetchAllBlog();
-  return (
-    <ul>
-      {contents.map(content => {
-        const { id, title } = content;
-        return (
-          <li key={id}>
-            <article>
-              <h1>{title}</h1>
-            </article>
-          </li>
-        );
-      })}
-    </ul>
-  );
+  return <Link href={"/blog"}>blog</Link>;
 }

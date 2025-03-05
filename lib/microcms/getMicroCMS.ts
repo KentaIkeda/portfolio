@@ -5,7 +5,7 @@ import type { BlogType, BlogContent, ProductType, CategoryType, CategoryContent 
  * @param {string} id ブログに紐づくID
  * @returns {Promise<BlogContent>} ブログの個別データ
  * **/
-export const getIndivisualBlog = (id: string): Promise<BlogContent> => {
+export const fetchIndivisualBlog = (id: string): Promise<BlogContent> => {
   const indivisualBlogData = client.get({
     endpoint: "blogs",
     contentId: id,
