@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import { roboto } from "./fonts/fonts";
+import { poppins } from "./fonts/fonts";
+import Footer from "./_components/Footer";
 
 export const metadata: Metadata = {
   title: "KENTA2525",
@@ -18,8 +19,11 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <body className={`${roboto.className} antialiased`}>{children}</body>
+    <html lang="ja" data-theme="cupcake">
+      <body className={`${poppins.className} antialiased`}>
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
