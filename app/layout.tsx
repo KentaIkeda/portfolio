@@ -19,9 +19,9 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="ja" data-theme="lofi">
+    <html lang="ja" data-theme="lofi" className="bg-neutral">
       <body className={`${poppins.className} antialiased`}>
-        <main>{children}</main>
+        <main className="m-2 bg-base-300 text-base-content rounded-4xl">{children}</main>
         <Footer />
       </body>
     </html>

@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
+import { notoSansJP } from "../fonts/fonts";
 
 import type { BlogContent } from "../types/types";
 
@@ -9,17 +10,18 @@ interface Props {
 
 const BlogList = ({ allBlog }: Props) => {
   return (
-    <ul className="list">
-      {allBlog.map((blog, i) => {
+    <ul className="flex flex-col gap-y-8">
+      {allBlog.map(blog => {
         return (
           <Fragment key={blog.id}>
-            <li>
+            <li className={`${notoSansJP.className}`}>
               <Link prefetch href={`/blog/${blog.id}`}>
-                <h2 className="">{blog.title}</h2>
-                <p className="opacity-65 line-clamp-1">{blog.description}</p>
+                <div className="flex flex-col gap-y-0.5">
+                  <h2 className="text-lg font-semibold">{blog.title}</h2>
+                  <p className="opacity-65 line-clamp-1 text-sm">{blog.description}</p>
+                </div>
               </Link>
             </li>
-            {i < allBlog.length - 1 && <div className="divider" />}
           </Fragment>
         );
       })}

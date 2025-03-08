@@ -24,8 +24,8 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link prefetch href={"/product"} className="link link-hover">
-                Product
+              <Link prefetch href={"/products"} className="link link-hover">
+                Products
               </Link>
             </li>
           </ul>
