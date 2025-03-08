@@ -68,3 +68,10 @@ export type Eyecatch = {
 export type ProductType = InclutdeContents<ProductContent>;
 export type BlogType = InclutdeContents<BlogContent>;
 export type CategoryType = InclutdeContents<CategoryContent>;
+
+export interface BreadcrumbItem {
+  id: number;
+  text: string;
+  isLink: boolean;
+  href?: string;
+}

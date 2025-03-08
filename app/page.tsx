@@ -6,7 +6,6 @@ export default async function Home() {
       {/* <Card href="blog" label="Blog" />
       <Card href="product" label="Product" /> */}
       <div className="mt-2 rounded-selector bg-accent aspect-video w-[90%] mx-auto"></div>
-      <div className="card card-lg size-40"></div>
     </div>
   );
 }
