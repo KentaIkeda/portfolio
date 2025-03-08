@@ -1,8 +1,8 @@
-import { BlogContent, BreadcrumbItem, CategoryContent } from "@/app/types/types";
-import Link from "next/link";
-import { Fragment } from "react";
+import type { BlogContent, BreadcrumbItem, CategoryContent } from "@/app/types/types";
+
 import Breadcrumb from "../../Breadcrumb";
 import CategoryList from "../../CategoryList";
+import BlogList from "../../BlogList";
 
 interface Props {
   allBlog: BlogContent[];
@@ -19,25 +19,7 @@ const Blog = ({ allBlog, allCategory }: Props) => {
     <div className="p-10 space-y-4">
       <Breadcrumb itemList={breadcrumbs} />
       <CategoryList allCategory={allCategory} />
-      <ul className="list">
-        {allBlog.map((blog, i) => {
-          return (
-            <Fragment key={blog.id}>
-              <li>
-                <Link prefetch href={`/blog/${blog.id}`}>
-                  <div className="card bg-base-200 drop-shadow-md">
-                    <div className="card-body text-base-content">
-                      <h1 className="card-title">{blog.title}</h1>
-                      <p className="opacity-65">{blog.description}</p>
-                    </div>
-                  </div>
-                </Link>
-              </li>
-              {i < allBlog.length - 1 && <div className="divider" />}
-            </Fragment>
-          );
-        })}
-      </ul>
+      <BlogList allBlog={allBlog} />
     </div>
   );
 };
