@@ -17,7 +17,7 @@ const BlogList = ({ allBlog }: Props) => {
             <li className={`${notoSansJP.className}`}>
               <Link prefetch href={`/blog/${blog.id}`}>
                 <div className="flex flex-col gap-y-0.5">
-                  <h2 className="text-lg font-semibold">{blog.title}</h2>
+                  <h1 className="text-lg font-semibold">{blog.title}</h1>
                   <p className="opacity-65 line-clamp-1 text-sm">{blog.description}</p>
                 </div>
               </Link>
