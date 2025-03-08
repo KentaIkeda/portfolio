@@ -3,6 +3,7 @@ import type { BlogContent, BreadcrumbItem, CategoryContent } from "@/app/types/t
 import Breadcrumb from "../../Breadcrumb";
 import CategoryList from "../../CategoryList";
 import BlogList from "../../BlogList";
+import Loading from "../../Skeleton/Loading";
 
 interface Props {
   allBlog: BlogContent[];

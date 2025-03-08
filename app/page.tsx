@@ -3,7 +3,7 @@
 export default async function Home() {
   return (
     <div className="h-dvh w-full">
-      {/* <Card href="blog" label="Blog" />
+      {/* <Card hraef="blog" label="Blog" />
       <Card href="product" label="Product" /> */}
       <div className="mt-2 rounded-selector bg-accent aspect-video w-[90%] mx-auto"></div>
     </div>

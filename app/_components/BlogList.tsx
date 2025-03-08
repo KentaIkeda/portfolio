@@ -15,12 +15,8 @@ const BlogList = ({ allBlog }: Props) => {
           <Fragment key={blog.id}>
             <li>
               <Link prefetch href={`/blog/${blog.id}`}>
-                <div className="card bg-base-200 drop-shadow-md">
-                  <div className="card-body text-base-content">
-                    <h1 className="card-title">{blog.title}</h1>
-                    <p className="opacity-65 line-clamp-1">{blog.description}</p>
-                  </div>
-                </div>
+                <h2 className="">{blog.title}</h2>
+                <p className="opacity-65 line-clamp-1">{blog.description}</p>
               </Link>
             </li>
             {i < allBlog.length - 1 && <div className="divider" />}

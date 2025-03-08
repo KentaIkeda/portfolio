@@ -17,7 +17,7 @@ const Category = ({ allCategory }: Props) => {
         <Breadcrumb itemList={breadcrumbs} />
       </div>
       <div>
-        <h1 className="font-bold text-5xl">All Category Here</h1>
+        <h1 className="font-bold text-5xl">All categories here</h1>
         <p className="mt-8 mb-4">
           All Blog/Product categories can be found here! Click on the category that interest you!
         </p>

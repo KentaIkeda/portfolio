@@ -1,0 +1,190 @@
+.article {
+  /* CSS変数定義 */
+  --text-primary: oklch(0, 0, 0);
+  --text-heading: #111;
+  --text-secondary: #555;
+  --bg-primary: #fff;
+  --bg-secondary: #f7f9fc;
+  --bg-tertiary: #fafbfc;
+  --border-color: #eaeaea;
+  --accent-color: #0070f3;
+  --accent-hover: #0056b3;
+  --highlight-color: #fff3cd;
+  --blockquote-border: #0070f3;
+
+  /* 基本フォント設定 */
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-primary);
+  max-width: 42rem;
+  margin: 0 auto;
+
+  /* 見出し共通スタイル */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    line-height: 1.4;
+    margin-top: 2.5em;
+    margin-bottom: 0.75em;
+    color: var(--text-heading);
+    letter-spacing: -0.01em;
+  }
+
+  /* 見出し個別サイズ */
+  h1 {
+    font-size: 2.25rem;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  /* 段落 */
+  p {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+  }
+
+  /* リンク */
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+  }
+
+  /* リスト */
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    padding-left: 1.5em;
+
+    li {
+      margin-bottom: 0.5em;
+    }
+
+    ul,
+    ol {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  /* 引用 */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 0.8em 1em;
+    border-left: 4px solid var(--blockquote-border);
+    background-color: var(--bg-secondary);
+    font-style: italic;
+    color: var(--text-secondary);
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0.5em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  /* インラインコード (highlight.jsに影響しない) */
+  :not(pre) > code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    background-color: var(--bg-secondary);
+    border-radius: 3px;
+  }
+
+  /* 水平線 */
+  hr {
+    height: 1px;
+    border: 0;
+    background-color: var(--border-color);
+    margin: 2em 0;
+  }
+
+  /* 画像 */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5em 0;
+    display: block;
+  }
+
+  /* テーブル */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--border-color);
+    padding: 0.75em;
+    text-align: left;
+  }
+
+  th {
+    background-color: var(--bg-secondary);
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: var(--bg-tertiary);
+  }
+
+  /* ハイライト */
+  mark {
+    background-color: var(--highlight-color);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+  }
+
+  /* レスポンシブ調整 */
+  @media (max-width: 768px) {
+    font-size: 15px;
+
+    h1 {
+      font-size: 1.875rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    h4 {
+      font-size: 1.125rem;
+    }
+  }
+}
