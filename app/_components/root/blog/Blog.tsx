@@ -16,7 +16,7 @@ const Blog = ({ allBlog, allCategory }: Props) => {
   ];
 
   return (
-    <div className="p-10 space-y-4">
+    <div className="space-y-4">
       <Breadcrumb itemList={breadcrumbs} />
       <CategoryList allCategory={allCategory} />
       <BlogList allBlog={allBlog} />
