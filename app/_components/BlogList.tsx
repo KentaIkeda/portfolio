@@ -18,7 +18,7 @@ const BlogList = ({ allBlog }: Props) => {
                 <div className="card bg-base-200 drop-shadow-md">
                   <div className="card-body text-base-content">
                     <h1 className="card-title">{blog.title}</h1>
-                    <p className="opacity-65">{blog.description}</p>
+                    <p className="opacity-65 line-clamp-1">{blog.description}</p>
                   </div>
                 </div>
               </Link>
