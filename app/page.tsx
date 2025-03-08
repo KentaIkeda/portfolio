@@ -3,8 +3,6 @@
 export default async function Home() {
   return (
     <div className="h-dvh w-full">
-      {/* <Card hraef="blog" label="Blog" />
-      <Card href="product" label="Product" /> */}
       <div className="rounded-selector bg-accent aspect-video w-[90%] mx-auto"></div>
     </div>
   );
