@@ -11,7 +11,7 @@ export default async function Home() {
               I write articles regarding daily questions. The articles I write include my own understanding. You may
               gain new insights!
             </p>
-            <button className="btn btn-block btn-dash btn-circle btn-primary">
+            <button className="btn btn-block btn-dash btn-circle btn-secondary">
               <Link prefetch href="/blog" className="w-full">
                 Read article
               </Link>
@@ -24,7 +24,7 @@ export default async function Home() {
             <p className="mt-4 mb-2">
               I introduce the products I create on a daily basis. You may possibly come across a good product.
             </p>
-            <button className="btn btn-block btn-dash btn-circle btn-primary">
+            <button className="btn btn-block btn-dash btn-circle btn-secondary">
               <Link prefetch href="/products" className="w-full">
                 View product
               </Link>
