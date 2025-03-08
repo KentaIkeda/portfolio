@@ -12,7 +12,11 @@ const CategoryList = ({ allCategory }: Props) => {
       {allCategory.map(category => {
         return (
           <li key={category.id}>
-            <Link prefetch href={`/category/${category.id}`} className="badge badge-dash badge-secondary">
+            <Link
+              prefetch
+              href={`/category/${category.id}`}
+              className="badge badge-dash badge-secondary cursor-pointer"
+            >
               {category.name}
             </Link>
           </li>
