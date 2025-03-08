@@ -18,162 +18,166 @@
   color: var(--text-primary);
   max-width: 42rem;
   margin: 0 auto;
+}
 
-  /* 見出し共通スタイル */
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: 700;
-    line-height: 1.4;
-    margin-top: 2.5em;
-    margin-bottom: 0.75em;
-    color: var(--text-heading);
-    letter-spacing: -0.01em;
+/* 見出し共通スタイル */
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6 {
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  color: var(--text-heading);
+  letter-spacing: -0.01em;
+}
+
+/* 見出し個別サイズ */
+.article h2 {
+  font-size: 1.75rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.article h3 {
+  font-size: 1.5rem;
+}
+
+.article h4 {
+  font-size: 1.25rem;
+}
+
+/* 段落 */
+.article p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* リンク */
+.article a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* リスト */
+.article ul,
+.article ol {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+
+.article li {
+  margin-bottom: 0.5em;
+}
+
+.article ul ul,
+.article ul ol,
+.article ol ul,
+.article ol ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* 引用 */
+.article blockquote {
+  margin: 1.5em 0;
+  padding: 0.8em 1em;
+  border-left: 4px solid var(--blockquote-border);
+  background-color: var(--bg-secondary);
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.article blockquote p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.article blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* インラインコード (highlight.jsに影響しない) */
+.article :not(pre) > code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  background-color: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+/* 水平線 */
+.article hr {
+  height: 1px;
+  border: 0;
+  background-color: var(--border-color);
+  margin: 2em 0;
+}
+
+/* 画像 */
+.article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5em 0;
+  display: block;
+}
+
+/* テーブル */
+.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+.article th,
+.article td {
+  border: 1px solid var(--border-color);
+  padding: 0.75em;
+  text-align: left;
+}
+
+.article th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.article tr:nth-child(even) {
+  background-color: var(--bg-tertiary);
+}
+
+/* ハイライト */
+.article mark {
+  background-color: var(--highlight-color);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+  .article {
+    font-size: 15px;
   }
 
-  /* 見出し個別サイズ */
-  h2 {
-    font-size: 1.75rem;
-    padding-bottom: 0.3em;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  h3 {
+  .article h2 {
     font-size: 1.5rem;
   }
 
-  h4 {
+  .article h3 {
     font-size: 1.25rem;
   }
 
-  /* 段落 */
-  p {
-    margin-top: 0;
-    margin-bottom: 1.5em;
-  }
-
-  /* リンク */
-  a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-    }
-  }
-
-  /* リスト */
-  ul,
-  ol {
-    margin-top: 0;
-    margin-bottom: 1.5em;
-    padding-left: 1.5em;
-
-    li {
-      margin-bottom: 0.5em;
-    }
-
-    ul,
-    ol {
-      margin-top: 0.5em;
-      margin-bottom: 0.5em;
-    }
-  }
-
-  /* 引用 */
-  blockquote {
-    margin: 1.5em 0;
-    padding: 0.8em 1em;
-    border-left: 4px solid var(--blockquote-border);
-    background-color: var(--bg-secondary);
-    font-style: italic;
-    color: var(--text-secondary);
-
-    p {
-      margin-top: 0;
-      margin-bottom: 0.5em;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  /* インラインコード (highlight.jsに影響しない) */
-  :not(pre) > code {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: 0.9em;
-    padding: 0.2em 0.4em;
-    margin: 0;
-    background-color: var(--bg-secondary);
-    border-radius: 3px;
-  }
-
-  /* 水平線 */
-  hr {
-    height: 1px;
-    border: 0;
-    background-color: var(--border-color);
-    margin: 2em 0;
-  }
-
-  /* 画像 */
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin: 1.5em 0;
-    display: block;
-  }
-
-  /* テーブル */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-  }
-
-  th,
-  td {
-    border: 1px solid var(--border-color);
-    padding: 0.75em;
-    text-align: left;
-  }
-
-  th {
-    background-color: var(--bg-secondary);
-    font-weight: 600;
-  }
-
-  tr:nth-child(even) {
-    background-color: var(--bg-tertiary);
-  }
-
-  /* ハイライト */
-  mark {
-    background-color: var(--highlight-color);
-    padding: 0.1em 0.3em;
-    border-radius: 3px;
-  }
-
-  /* レスポンシブ調整 */
-  @media (max-width: 768px) {
-    font-size: 15px;
-
-    h2 {
-      font-size: 1.5rem;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-    }
-
-    h4 {
-      font-size: 1.125rem;
-    }
+  .article h4 {
+    font-size: 1.125rem;
   }
 }
