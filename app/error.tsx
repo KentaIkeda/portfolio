@@ -1,39 +1,18 @@
-'use client'; // Error boundaries must be Client Components
+"use client";
 
-import Link from 'next/link';
-import { useEffect } from 'react';
+import Link from "next/link";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
-  }, [error]);
-
+export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   return (
-    <div className='min-h-dvh w-full grid place-items-center'>
-      <div>
-        <h2>データが取得できませんでした</h2>
-        <div className='flex space-x-4'>
-          <button
-            className='bg-accent2 px-4 py-2.5 rounded-md'
-            onClick={
-              // Attempt to recover by trying to re-render the segment
-              () => reset()
-            }
-          >
-            Try again
+    <div className="min-h-dvh w-full grid place-items-center">
+      <div className="flex flex-col gap-y-8">
+        <h2 className="text-error text-2xl font-bold text-center">{error.message}</h2>
+        <div className="flex flex-col gap-y-2">
+          <button className="btn btn-accent btn-block btn-circle" onClick={() => reset()}>
+            Retry
           </button>
-          <Link
-            href={'/'}
-            className='bg-accent2 px-4 py-2.5 rounded-md'
-          >
-            Back to Top Page?
+          <Link href={"/"} className="btn btn-accent btn-block btn-circle btn-dash">
+            Top page
           </Link>
         </div>
       </div>

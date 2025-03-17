@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { poppins } from "./fonts/fonts";
 import Footer from "./_components/Footer";
+import Header from "./_components/Header";
 
 export const metadata: Metadata = {
   title: "KENTA2525",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   colorScheme: "light",
   initialScale: 1,
-  themeColor: "#000000",
+  themeColor: "#F0F0F0",
   width: "device-width",
 };
 
@@ -48,6 +49,7 @@ export default function RootLayout({
   return (
     <html lang="ja" data-theme="lofi" className="bg-neutral">
       <body className={`${poppins.className} antialiased`}>
+        <Header />
         <main className="m-2 bg-base-300 text-base-content rounded-4xl">{children}</main>
         <Footer />
       </body>
