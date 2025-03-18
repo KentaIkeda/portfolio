@@ -4,11 +4,11 @@ import Search from "./Search";
 import HeaderBlogList from "./HeaderBlogList";
 
 import gsap from "gsap";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState, useId, useEffect, useRef } from "react";
 
 import type { BlogContent } from "../types/types";
-import type { ChangeEvent, MouseEvent } from "react";
+import type { ChangeEvent } from "react";
 
 interface Props {
   allBlog: BlogContent[];
@@ -19,7 +19,7 @@ const SearchBlog = ({ allBlog }: Props) => {
   const headerId = useId();
   const blogListId = useId();
   const blogContainerId = useId();
-  const router = useRouter();
+  const pathname = usePathname();
   const heightIncreaseAnimationRef = useRef<gsap.core.Tween>(undefined);
   const heightDecreaseAnimationRef = useRef<gsap.core.Tween>(undefined);
 
@@ -32,21 +32,17 @@ const SearchBlog = ({ allBlog }: Props) => {
     return blog.title.includes(searchString);
   });
 
-  const handleClickLink = (e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-
-    setSearchString("");
-    router.push(e.currentTarget.href);
-  };
-
   const getChildrenHeight = (elementList: HTMLElement[]): number => {
     let height = 0;
     elementList.forEach(element => {
       height += element.offsetHeight;
     });
-    console.log(height);
     return height;
   };
+
+  useEffect(() => {
+    if (searchString.length > 0) setSearchString("");
+  }, [pathname]);
 
   useEffect(() => {
     const header = document.getElementById(headerId);
@@ -109,7 +105,7 @@ const SearchBlog = ({ allBlog }: Props) => {
           {searchString.length > 0 ? (
             <>
               {filteredBlog.length > 0 ? (
-                <HeaderBlogList id={blogListId} filteredBlog={filteredBlog} handleClick={handleClickLink} />
+                <HeaderBlogList id={blogListId} filteredBlog={filteredBlog} />
               ) : (
                 <p>Typing...</p>
               )}
