@@ -1,12 +1,14 @@
 "use client";
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { notoSansJP } from "../fonts/fonts";
-import type { BlogContent } from "../types/types";
 import Search from "./Search";
+import HeaderBlogList from "./HeaderBlogList";
 
-import { ChangeEvent, Fragment, MouseEvent, useState } from "react";
+import gsap from "gsap";
+import { useRouter } from "next/navigation";
+import { useState, useId, useEffect, useRef } from "react";
+
+import type { BlogContent } from "../types/types";
+import type { ChangeEvent, MouseEvent } from "react";
 
 interface Props {
   allBlog: BlogContent[];
@@ -14,7 +16,12 @@ interface Props {
 
 const SearchBlog = ({ allBlog }: Props) => {
   const [searchString, setSearchString] = useState("");
+  const headerId = useId();
+  const blogListId = useId();
+  const blogContainerId = useId();
   const router = useRouter();
+  const heightIncreaseAnimationRef = useRef<gsap.core.Tween>(undefined);
+  const heightDecreaseAnimationRef = useRef<gsap.core.Tween>(undefined);
 
   const handleChangeSearchString = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchString(e.target.value);
@@ -32,30 +39,87 @@ const SearchBlog = ({ allBlog }: Props) => {
     router.push(e.currentTarget.href);
   };
 
+  const getChildrenHeight = (elementList: HTMLElement[]): number => {
+    let height = 0;
+    elementList.forEach(element => {
+      height += element.offsetHeight;
+    });
+    console.log(height);
+    return height;
+  };
+
+  useEffect(() => {
+    const header = document.getElementById(headerId);
+    const blogContainer = document.getElementById(blogContainerId);
+    if (!header) throw new Error("DID NOT FOUND HEADER.");
+    if (!blogContainer) throw new Error("DID NOT FOUND BLOG CONTAINER");
+
+    if (searchString.length < 1) {
+      if (!heightDecreaseAnimationRef.current) return;
+      heightDecreaseAnimationRef.current.play();
+      return;
+    }
+
+    if (filteredBlog.length > 0) {
+      const blogUL = document.getElementById(blogListId);
+      if (!blogUL) throw new Error("DID NOT FOUND UL");
+
+      const blogList = gsap.utils.toArray<HTMLElement>(blogUL.children);
+      const blogListHeight = getChildrenHeight(blogList);
+      heightIncreaseAnimationRef.current = gsap.fromTo(
+        blogContainer,
+        {
+          height: 0,
+        },
+        {
+          height: blogListHeight,
+          ease: "back.out",
+          duration: 0.5,
+          paused: true,
+        }
+      );
+      heightDecreaseAnimationRef.current = gsap.fromTo(
+        blogContainer,
+        {
+          height: blogListHeight,
+        },
+        {
+          height: 0,
+          ease: "back.in",
+          duration: 0.5,
+          paused: true,
+        }
+      );
+
+      heightIncreaseAnimationRef.current.play();
+    }
+    return () => {
+      if (heightIncreaseAnimationRef.current) heightIncreaseAnimationRef.current.kill();
+      if (heightDecreaseAnimationRef.current) heightDecreaseAnimationRef.current.kill();
+    };
+  }, [searchString, headerId, blogListId, filteredBlog, blogContainerId]);
+
   return (
-    <>
-      <Search value={searchString} onChange={handleChangeSearchString} />
-      {searchString.length > 0 && (
-        <div className="w-[75%] p-10 rounded-4xl bg-base-300 text-base-content border border-accent shadow-2xl fixed z-[9999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <ul className="flex flex-col gap-y-8">
-            {filteredBlog.map(blog => {
-              return (
-                <Fragment key={blog.id}>
-                  <li className={`${notoSansJP.className}`}>
-                    <Link prefetch href={`/blog/${blog.id}`} onClick={handleClickLink}>
-                      <div className="flex flex-col gap-y-0.5">
-                        <h1 className="font-semibold">{blog.title}</h1>
-                        <p className="opacity-65 line-clamp-1 text-xs">{blog.description}</p>
-                      </div>
-                    </Link>
-                  </li>
-                </Fragment>
-              );
-            })}
-          </ul>
+    <header id={headerId} className="h-auto p-10 bg-base-300 text-base-content rounded-b-4xl mx-2">
+      <div className={`flex flex-col items-start ${searchString.length < 1 ? "gap-y-0" : "gap-y-2"}`}>
+        <div className="w-full flex justify-center items-center">
+          <Search value={searchString} onChange={handleChangeSearchString} />
         </div>
-      )}
-    </>
+        <div id={blogContainerId}>
+          {searchString.length > 0 ? (
+            <>
+              {filteredBlog.length > 0 ? (
+                <HeaderBlogList id={blogListId} filteredBlog={filteredBlog} handleClick={handleClickLink} />
+              ) : (
+                <p>Typing...</p>
+              )}
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
+      </div>
+    </header>
   );
 };
 
