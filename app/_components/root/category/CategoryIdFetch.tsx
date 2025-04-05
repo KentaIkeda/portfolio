@@ -6,6 +6,8 @@ interface Props {
   id: string;
 }
 
+export const dynamic = "force-dynamic";
+
 const CategoryIdFetch = async ({ id }: Props) => {
   const { contents: allBlogByCategory } = await fetchAllBlogByCategory(id);
   const { contents: allCategory } = await fetchAllCategories();
