@@ -1,4 +1,4 @@
-import { client } from "@/lib/microcms/microcms";
+import { microcms } from "@/lib/microcms/microcms";
 import type { BlogType, BlogContent, ProductType, CategoryType, CategoryContent } from "@/app/types/types";
 
 /**
@@ -6,7 +6,7 @@ import type { BlogType, BlogContent, ProductType, CategoryType, CategoryContent 
  * @returns {Promise<BlogContent>} ブログの個別データ
  * **/
 export const fetchIndivisualBlog = (id: string): Promise<BlogContent> => {
-  const indivisualBlogData = client.get({
+  const indivisualBlogData = microcms.get({
     endpoint: "blogs",
     contentId: id,
   });
@@ -17,7 +17,7 @@ export const fetchIndivisualBlog = (id: string): Promise<BlogContent> => {
  * @returns {Promise<BlogType>} 全てのブログデータ
  * **/
 export const fetchAllBlog = (): Promise<BlogType> => {
-  const allBlog = client.get({
+  const allBlog = microcms.get({
     endpoint: "blogs",
   });
   return allBlog;
@@ -26,9 +26,10 @@ export const fetchAllBlog = (): Promise<BlogType> => {
 /**
  * 任意の数分ブログデータを取得する関数
  * @param {number} n - 取得する数
+ * @returns {Promise<BlogType>}
  */
 export const fetchBlogsOnlyN = (n: number): Promise<BlogType> => {
-  const blogData = client.get({
+  const blogData = microcms.get({
     endpoint: "blogs",
     queries: {
       limit: n,
@@ -42,7 +43,7 @@ export const fetchBlogsOnlyN = (n: number): Promise<BlogType> => {
  * @returns {Promise<BlogType>} カテゴリーに紐づく全てのブログデータ
  * **/
 export const fetchAllBlogByCategory = (categoryId: string): Promise<BlogType> => {
-  const allBlogByCategory = client.get({
+  const allBlogByCategory = microcms.get({
     endpoint: "blogs",
     queries: { filters: `category[equals]${categoryId}` },
   });
@@ -53,7 +54,7 @@ export const fetchAllBlogByCategory = (categoryId: string): Promise<BlogType> =>
  * @returns {Promise<ProductType>} 全ての開発したアプリケーションのデータ
  * **/
 export const fetchAllProduct = (): Promise<ProductType> => {
-  const allProduct = client.get({
+  const allProduct = microcms.get({
     endpoint: "products",
   });
   return allProduct;
@@ -63,7 +64,7 @@ export const fetchAllProduct = (): Promise<ProductType> => {
  * @returns {Promise<CategoryType>} 全てのカテゴリーのデータ
  * **/
 export const fetchAllCategories = (): Promise<CategoryType> => {
-  const allCategoriesData = client.get({
+  const allCategoriesData = microcms.get({
     endpoint: "categories",
   });
   return allCategoriesData;
@@ -74,7 +75,7 @@ export const fetchAllCategories = (): Promise<CategoryType> => {
  * @returns {Promise<CategoryContent>} カテゴリーの個別データ
  * **/
 export const fetchIndivisualCategory = (id: string): Promise<CategoryContent> => {
-  const indivisualCategoryData = client.get({
+  const indivisualCategoryData = microcms.get({
     endpoint: "categories",
     contentId: id,
   });
