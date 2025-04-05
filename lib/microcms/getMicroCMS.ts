@@ -9,11 +9,6 @@ export const fetchIndivisualBlog = (id: string): Promise<BlogContent> => {
   const indivisualBlogData = client.get({
     endpoint: "blogs",
     contentId: id,
-    customRequestInit: {
-      next: {
-        revalidate: 60,
-      },
-    },
   });
   return indivisualBlogData;
 };
@@ -24,11 +19,6 @@ export const fetchIndivisualBlog = (id: string): Promise<BlogContent> => {
 export const fetchAllBlog = (): Promise<BlogType> => {
   const allBlog = client.get({
     endpoint: "blogs",
-    customRequestInit: {
-      next: {
-        revalidate: 60,
-      },
-    },
   });
   return allBlog;
 };
@@ -54,11 +44,6 @@ export const fetchBlogsOnlyN = (n: number): Promise<BlogType> => {
 export const fetchAllBlogByCategory = (categoryId: string): Promise<BlogType> => {
   const allBlogByCategory = client.get({
     endpoint: "blogs",
-    customRequestInit: {
-      next: {
-        revalidate: 60,
-      },
-    },
     queries: { filters: `category[equals]${categoryId}` },
   });
   return allBlogByCategory;
@@ -70,11 +55,6 @@ export const fetchAllBlogByCategory = (categoryId: string): Promise<BlogType> =>
 export const fetchAllProduct = (): Promise<ProductType> => {
   const allProduct = client.get({
     endpoint: "products",
-    customRequestInit: {
-      next: {
-        revalidate: 60,
-      },
-    },
   });
   return allProduct;
 };
@@ -85,11 +65,6 @@ export const fetchAllProduct = (): Promise<ProductType> => {
 export const fetchAllCategories = (): Promise<CategoryType> => {
   const allCategoriesData = client.get({
     endpoint: "categories",
-    customRequestInit: {
-      next: {
-        revalidate: 60,
-      },
-    },
   });
   return allCategoriesData;
 };
@@ -102,11 +77,6 @@ export const fetchIndivisualCategory = (id: string): Promise<CategoryContent> =>
   const indivisualCategoryData = client.get({
     endpoint: "categories",
     contentId: id,
-    customRequestInit: {
-      next: {
-        revalidate: 60,
-      },
-    },
   });
   return indivisualCategoryData;
 };

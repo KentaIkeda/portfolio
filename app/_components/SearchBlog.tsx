@@ -16,9 +16,9 @@ interface Props {
 
 const SearchBlog = ({ allBlog }: Props) => {
   const [searchString, setSearchString] = useState("");
-  const headerId = useId();
   const blogListId = useId();
   const blogContainerId = useId();
+  const typingTextId = useId();
   const pathname = usePathname();
   const heightIncreaseAnimationRef = useRef<gsap.core.Tween>(undefined);
   const heightDecreaseAnimationRef = useRef<gsap.core.Tween>(undefined);
@@ -42,12 +42,11 @@ const SearchBlog = ({ allBlog }: Props) => {
 
   useEffect(() => {
     if (searchString.length > 0) setSearchString("");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   useEffect(() => {
-    const header = document.getElementById(headerId);
     const blogContainer = document.getElementById(blogContainerId);
-    if (!header) throw new Error("DID NOT FOUND HEADER.");
     if (!blogContainer) throw new Error("DID NOT FOUND BLOG CONTAINER");
 
     if (searchString.length < 1) {
@@ -93,21 +92,25 @@ const SearchBlog = ({ allBlog }: Props) => {
       if (heightIncreaseAnimationRef.current) heightIncreaseAnimationRef.current.kill();
       if (heightDecreaseAnimationRef.current) heightDecreaseAnimationRef.current.kill();
     };
-  }, [searchString, headerId, blogListId, filteredBlog, blogContainerId]);
+  }, [searchString, blogListId, filteredBlog, blogContainerId]);
 
   return (
-    <header id={headerId} className="h-auto p-10 bg-base-300 text-base-content rounded-b-4xl mx-2">
+    <header className="h-auto p-10 bg-base-300 text-base-content rounded-b-4xl mx-2">
       <div className={`flex flex-col items-start ${searchString.length < 1 ? "gap-y-0" : "gap-y-2"}`}>
         <div className="w-full flex justify-center items-center">
           <Search value={searchString} onChange={handleChangeSearchString} />
         </div>
-        <div id={blogContainerId}>
+        <div id={blogContainerId} className="w-full">
           {searchString.length > 0 ? (
             <>
               {filteredBlog.length > 0 ? (
                 <HeaderBlogList id={blogListId} filteredBlog={filteredBlog} />
               ) : (
-                <p>Typing...</p>
+                <div className="relative">
+                  <p id={typingTextId} className="w-fit text-base-content">
+                    Typing...
+                  </p>
+                </div>
               )}
             </>
           ) : (
