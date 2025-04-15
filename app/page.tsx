@@ -1,6 +1,12 @@
 import Link from "next/link";
 
 export default async function Home() {
+  const hoge = "hoge";
+  const isString = (s: unknown): s is string => {
+    return typeof s === "string";
+  };
+
+  if (isString(hoge)) console.log(`${hoge} is string`);
   return (
     <div className="p-10">
       <div className="space-y-12">

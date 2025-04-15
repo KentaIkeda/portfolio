@@ -12,8 +12,8 @@ const Category = ({ allCategory }: Props) => {
     { id: 1, isLink: false, text: "Category" },
   ];
   return (
-    <div className="h-dvh w-full grid place-items-center">
-      <div className="absolute top-10 left-10">
+    <div className="relative h-dvh w-full grid place-items-center">
+      <div className="absolute top-0 left-0">
         <Breadcrumb itemList={breadcrumbs} />
       </div>
       <div>
