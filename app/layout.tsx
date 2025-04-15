@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { poppins } from "./fonts/fonts";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./_components/Footer";
 import Header from "./_components/Header";
 
@@ -52,6 +53,7 @@ export default function RootLayout({
         <Header />
         <main className="m-2 bg-base-300 text-base-content rounded-4xl">{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
