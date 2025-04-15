@@ -5,11 +5,12 @@ import type { BlogType, BlogContent, ProductType, CategoryType, CategoryContent 
  * @param {string} id ブログに紐づくID
  * @returns {Promise<BlogContent>} ブログの個別データ
  * **/
-export const fetchIndivisualBlog = (id: string): Promise<BlogContent> => {
-  const indivisualBlogData = microcms.get({
+export const fetchIndivisualBlog = async (id: string): Promise<BlogContent> => {
+  const indivisualBlogData = microcms.get<BlogContent>({
     endpoint: "blogs",
     contentId: id,
   });
+
   return indivisualBlogData;
 };
 

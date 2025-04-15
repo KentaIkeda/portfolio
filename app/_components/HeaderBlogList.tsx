@@ -10,10 +10,13 @@ interface Props {
 
 const HeaderBlogList = ({ id, filteredBlog }: Props) => {
   return (
-    <ul id={id} className="flex flex-col">
+    <ul id={id} className="list">
       {filteredBlog.map((blog, i) => {
         return (
-          <li key={blog.id} className={`${notoSansJP.className} ${i + 1 === filteredBlog.length ? "pt-2" : "py-2"}`}>
+          <li
+            key={blog.id}
+            className={`${notoSansJP.className} ${i + 1 === filteredBlog.length ? "pt-2" : "py-2"} list-row`}
+          >
             <Link prefetch href={`/blog/${blog.id}`} className="font-semibold">
               {blog.title}
             </Link>

@@ -10,15 +10,15 @@ interface Props {
 
 const BlogList = ({ allBlog }: Props) => {
   return (
-    <ul className="flex flex-col gap-y-8">
+    <ul className="list">
       {allBlog.map(blog => {
         return (
           <Fragment key={blog.id}>
-            <li className={`${notoSansJP.className}`}>
+            <li className={`${notoSansJP.className} list-row`}>
               <Link prefetch href={`/blog/${blog.id}`}>
                 <div className="flex flex-col gap-y-0.5">
-                  <h1 className="text-lg font-semibold">{blog.title}</h1>
-                  <p className="opacity-65 line-clamp-1 text-sm">{blog.description}</p>
+                  <h1 className="text-base font-semibold">{blog.title}</h1>
+                  <p className="opacity-65 line-clamp-1 text-xs list-col-wrap">{blog.description}</p>
                 </div>
               </Link>
             </li>
