@@ -9,6 +9,11 @@ export const fetchIndivisualBlog = async (id: string): Promise<BlogContent> => {
   const indivisualBlogData = microcms.get<BlogContent>({
     endpoint: "blogs",
     contentId: id,
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
   });
 
   return indivisualBlogData;
@@ -20,6 +25,11 @@ export const fetchIndivisualBlog = async (id: string): Promise<BlogContent> => {
 export const fetchAllBlog = (): Promise<BlogType> => {
   const allBlog = microcms.get({
     endpoint: "blogs",
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
   });
   return allBlog;
 };
@@ -35,6 +45,11 @@ export const fetchBlogsOnlyN = (n: number): Promise<BlogType> => {
     queries: {
       limit: n,
     },
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
   });
   return blogData;
 };
@@ -47,6 +62,11 @@ export const fetchAllBlogByCategory = (categoryId: string): Promise<BlogType> =>
   const allBlogByCategory = microcms.get({
     endpoint: "blogs",
     queries: { filters: `category[equals]${categoryId}` },
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
   });
   return allBlogByCategory;
 };
@@ -57,6 +77,11 @@ export const fetchAllBlogByCategory = (categoryId: string): Promise<BlogType> =>
 export const fetchAllProduct = (): Promise<ProductType> => {
   const allProduct = microcms.get({
     endpoint: "products",
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
   });
   return allProduct;
 };
@@ -67,6 +92,11 @@ export const fetchAllProduct = (): Promise<ProductType> => {
 export const fetchAllCategories = (): Promise<CategoryType> => {
   const allCategoriesData = microcms.get({
     endpoint: "categories",
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
   });
   return allCategoriesData;
 };
@@ -79,6 +109,11 @@ export const fetchIndivisualCategory = (id: string): Promise<CategoryContent> =>
   const indivisualCategoryData = microcms.get({
     endpoint: "categories",
     contentId: id,
+    customRequestInit: {
+      next: {
+        revalidate: 60,
+      },
+    },
   });
   return indivisualCategoryData;
 };
